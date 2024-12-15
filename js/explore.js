@@ -1,3 +1,10 @@
+/* 
+    Handle URL and search:
+        Read URL parameters
+        Fill search bar with current tags
+        Perform a search
+*/
+
 // Haal parameters uit link
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
@@ -24,13 +31,22 @@ function doSearch(){
     };
 };
 
-// Load post objects
-fetch("../assets/json/posts.json")
-  .then(response => response.json())
-  .then(data => {
-    console.log(data.links); // Hier krijg je de lijst met links
-  })
-  .catch(error => console.error("Error loading JSON:", error));
+
+
+/*
+    Handle posts:
+        Read JSON
+        Filter posts
+        Place posts
+*/
+
+// Filter posts by tags
+function filterPosts(posts, tagsFilter){
+    return posts.filter(post => {
+        // Controleer of elke tag in de lijst 'tags' aanwezig is in de post's tags
+        return tagsFilter.every(tag => post.tags.includes(tag));
+    });
+};
 
 // Place all posts
 const postsContainer = document.getElementById("posts-container");
@@ -42,3 +58,18 @@ function placePosts(posts){
         postsContainer.append(postBox);
     });
 };
+
+
+// Load post objects
+let postObjects
+fetch("../assets/json/posts.json")
+  .then(response => response.json())
+  .then(data => {
+    postObjects = data.links; // Hier krijg je de lijst met links
+
+    /*
+        Filter de posts
+        Plaats de posts op de webpagina
+    */
+  })
+  .catch(error => console.error("Error loading JSON:", error));

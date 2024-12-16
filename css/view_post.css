@@ -53,6 +53,22 @@ main {
     margin: 0;
     padding: 0;
     overflow-y: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+#tags-container{
+    padding: 5px;
+    margin: 0;
+    border-right: 1px solid #b7b7b7;
+    width: 20%;
+}
+
+#post-container {
+    padding: 0;
+    margin: 0;
+    width: 80%;
 }
 
 #search-bar-container {
@@ -64,8 +80,8 @@ main {
 }
 
 #search{
-    width: 20vw;
-    text-align: center;
+    width: 12vw;
+    text-align: left;
 }
 
 #search-button {
@@ -80,40 +96,53 @@ main {
     text-decoration:none;
 }
 
-#search-button:active {
-    position:relative;
-	top:1px;
+.tag-title {
+    display: block;
+    margin: 6px;
+    color: #ffffff;
 }
 
-#search-button:hover {
-    background-color:rgba(210, 210, 210, 0.35);
+.tag-artists {
+    display: block;
+    margin: 4px;
+    font-family:'Lucida Console';
+    font-size: 12px;
+    color: #b70f0f;
+    text-decoration: none;
 }
 
-#posts-container {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: space-evenly;
-
-    padding: 20px;
+.tag-characters {
+    display: block;
+    margin: 4px;
+    font-family:'Lucida Console';
+    font-size: 12px;
+    color: #138a36;
+    text-decoration: none;
 }
 
-.post {
-    padding: 10px;
-    margin: 5px;
-    background-color: rgba(183, 183, 183, 0.35);
-    width: 18vw;
-    height: auto;
-    border: #b7b7b7 solid 1px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
+.tag-franchise {
+    display: block;
+    margin: 4px;
+    font-family:'Lucida Console';
+    font-size: 12px;
+    color: #d50a7a;
+    text-decoration: none;
 }
 
-.embed {
-    width: 90%;
-    height: 90%;
-    border: none;
+.tag-general {
+    display: block;
+    margin: 4px;
+    font-family:'Lucida Console';
+    font-size: 12px;
+    color: #35a7ff;
+    text-decoration: none;
+}
+
+.tag-metadata {
+    display: block;
+    margin: 4px;
+    font-family:'Lucida Console';
+    font-size: 12px;
+    color: #fb8500;
+    text-decoration: none;
 }

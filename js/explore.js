@@ -5,7 +5,7 @@
         Perform a search
 */
 
-// Haal parameters uit link
+// Get params from link
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
 let tagsInLink = urlParams.get('tags');
@@ -55,7 +55,7 @@ function filterPosts(posts, tagsFilter){
         return posts
     }else {
         return posts.filter(post => {
-            // Controleer of elke tag in de lijst 'tags' aanwezig is in de post's tags
+            // Check if post's "tags" list includes the tags to filter
             return tagsFilter.every(tag => post.tags.includes(tag));
         });
     };
@@ -81,6 +81,9 @@ function placePosts(posts){
         let postBox = document.createElement("div");
         postBox.appendChild(video);
         postBox.className = "post";
+        postBox.addEventListener("click", function(){
+            window.location.href = "view_post.html?url=" + encodeURIComponent(e.url);
+        })
         postsContainer.append(postBox);
     });
 };
@@ -91,7 +94,7 @@ let postObjects
 fetch("../assets/json/posts.json")
   .then(response => response.json())
   .then(data => {
-    postObjects = data.links; // Hier krijg je de lijst met links
+    postObjects = data.links; // All link objects
 
     placePosts(filterPosts(postObjects, tagsInLink));
   })

@@ -31,6 +31,14 @@ function doSearch(){
     };
 };
 
+// Press enter to do a search
+searchBar.addEventListener("keydown", function(event){
+    if (event.key === "Enter"){
+        event.preventDefault();
+        doSearch();
+    };
+});
+
 
 
 /*

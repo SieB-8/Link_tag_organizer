@@ -10,24 +10,31 @@ const lightModeSwitch = document.getElementById("light-mode-switch")
 const header = document.getElementById("header");
 const headerLinks = document.querySelectorAll("header a");
 const searchButton = document.getElementById("search-button");
+const tagsContainerDiv = document.getElementById("tags-container");
 
 //update lightMode
 function updateLightMode() {
     if (lightModeBool) {
         document.body.style.backgroundColor = "#ffffff";
         header.style.backgroundColor = "#e6e6e6";
-        headerLinks.forEach(link => {
-            link.style.color = "#454545";
+        headerLinks.forEach(e => {
+            e.style.color = "#454545";
         });
         searchButton.style.color = "#454545";
+        if (tagsContainerDiv != null) {
+            tagsContainerDiv.style.color = "#141414";
+        };
         lightMode.src = "../assets/textures/light_mode.png";
     } else {
         document.body.style.backgroundColor = "#141414";
         header.style.backgroundColor = "#454545";
-        headerLinks.forEach(link => {
-            link.style.color = "#b7b7b7";
+        headerLinks.forEach(e => {
+            e.style.color = "#b7b7b7";
         });
         searchButton.style.color = "#ffffff";
+        if (tagsContainerDiv != null) {
+            tagsContainerDiv.style.color = "#ffffff";
+        };
         lightMode.src = "../assets/textures/dark_mode.png";
     }
 }

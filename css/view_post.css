@@ -63,6 +63,7 @@ main {
     margin: 0;
     border-right: 1px solid #b7b7b7;
     width: 20%;
+    color: #ffffff;
 }
 
 #post-container {
@@ -99,7 +100,6 @@ main {
 .tag-title {
     display: block;
     margin: 6px;
-    color: #ffffff;
 }
 
 .tag-artists {

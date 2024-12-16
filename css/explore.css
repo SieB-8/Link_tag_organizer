@@ -103,6 +103,16 @@ main {
     padding: 10px;
     margin: 5px;
     background-color: rgba(183, 183, 183, 0.35);
-    width: 12vw;
+    width: 18vw;
+    height: auto;
     border: #b7b7b7 solid 1px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.embed {
+    width: 90%;
+    height: 90%;
+    border: none;
 }

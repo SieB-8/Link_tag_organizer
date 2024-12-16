@@ -37,6 +37,7 @@ function doSearch(){
     Handle posts:
         Read JSON
         Filter posts
+        Generate iframe url
         Place posts
 */
 
@@ -48,12 +49,25 @@ function filterPosts(posts, tagsFilter){
     });
 };
 
+// Generate iframe url
+function generateUrl(url, type){
+    if(type === "youtube"){
+        return url.replace("https://www.youtube.com/watch?v=", "https://www.youtube.com/embed/")
+    };
+};
+
 // Place all posts
 const postsContainer = document.getElementById("posts-container");
 
 function placePosts(posts){
     posts.forEach(e => {
+        let video = document.createElement("iframe");
+        video.src = generateUrl(e.url, e.type);
+        video.allow = "autoplay;";
+        video.className = "embed";
+
         let postBox = document.createElement("div");
+        postBox.appendChild(video);
         postBox.className = "post";
         postsContainer.append(postBox);
     });
@@ -67,9 +81,6 @@ fetch("../assets/json/posts.json")
   .then(data => {
     postObjects = data.links; // Hier krijg je de lijst met links
 
-    /*
-        Filter de posts
-        Plaats de posts op de webpagina
-    */
+    placePosts(filterPosts(postObjects, ["minecraft"]));
   })
   .catch(error => console.error("Error loading JSON:", error));

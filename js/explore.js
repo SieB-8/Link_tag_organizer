@@ -43,10 +43,14 @@ function doSearch(){
 
 // Filter posts by tags
 function filterPosts(posts, tagsFilter){
-    return posts.filter(post => {
-        // Controleer of elke tag in de lijst 'tags' aanwezig is in de post's tags
-        return tagsFilter.every(tag => post.tags.includes(tag));
-    });
+    if (tagsFilter === null){
+        return posts
+    }else {
+        return posts.filter(post => {
+            // Controleer of elke tag in de lijst 'tags' aanwezig is in de post's tags
+            return tagsFilter.every(tag => post.tags.includes(tag));
+        });
+    };
 };
 
 // Generate iframe url
@@ -81,6 +85,6 @@ fetch("../assets/json/posts.json")
   .then(data => {
     postObjects = data.links; // Hier krijg je de lijst met links
 
-    placePosts(filterPosts(postObjects, ["minecraft"]));
+    placePosts(filterPosts(postObjects, tagsInLink));
   })
   .catch(error => console.error("Error loading JSON:", error));

@@ -123,8 +123,23 @@ let removeLikesButton = document.getElementById("remove-like-button");
 function placeLikes() {
     likesCount.innerHTML = currentPost.likes;
     addLikesButton.addEventListener("click", function () {
-        currentPost.likes++;
-        likesCount.innerHTML = currentPost.likes;
+        fetch("http://localhost:3000/like", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ url: currentPost.url })  // url
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                currentPost.likes++;  // Werk de weergave van de likes bij
+                likesCount.innerHTML = currentPost.likes;
+            } else {
+                console.error("Fout bij het verhogen van de likes:", data.message);
+            }
+        })
+        .catch(error => console.error("Fout:", error)); 
     })
     removeLikesButton.addEventListener("click", function () {
         currentPost.likes--;

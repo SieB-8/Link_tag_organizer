@@ -1,3 +1,4 @@
 @echo off
-python start_server.py
+start python start_server.py
+start node backend/server.js
 pause

@@ -64,7 +64,7 @@ function filterPosts(posts, tagsFilter) {
 // Generate iframe url
 function generateUrl(url, type) {
     if (type === "youtube") {
-        return url.replace("https://www.youtube.com/watch?v=", "https://www.youtube.com/embed/")
+        return url.replace("watch?v=", "embed/")
     };
 };
 

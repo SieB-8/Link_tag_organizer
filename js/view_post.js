@@ -94,6 +94,28 @@ function loadTagDatabase() {
         .catch(error => console.error("Error loading JSON:", error));
 }
 
+// Generate iframe url
+function generateUrl(url, type) {
+    if (type === "youtube") {
+        return url.replace("watch?v=", "embed/")
+    };
+};
+
+// embed video
+const postContainer = document.getElementById("post-container");
+function embedVideo() {
+    let video = document.createElement("iframe");
+    video.src = generateUrl(currentPost.url, currentPost.type);
+    video.allow = "autoplay;";
+    video.className = "embed";
+    if (currentPost.type === "custom_aspect_ratio") {
+        console.log("Calculate aspect ratio"); // Calculate a aspect ratio for videos that do not always have the 16/9 ratio
+    } else {
+        video.style.aspectRatio = 16 / 9;
+    }
+    postContainer.appendChild(video);
+}
+
 // Load post objects
 let postObjects, currentPost;
 fetch("../assets/json/posts.json")
@@ -108,5 +130,6 @@ fetch("../assets/json/posts.json")
         });
 
         loadTagDatabase();
+        embedVideo();
     })
     .catch(error => console.error("Error loading JSON:", error));

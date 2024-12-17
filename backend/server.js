@@ -41,6 +41,23 @@ app.post('/like', (req, res) => {
     }
 });
 
+// Likes verlagen
+app.post('/dislike', (req, res) => {
+    const { url } = req.body;  // Verkrijg de URL van de post
+    let posts = loadPosts();   // Laad de huidige posts
+
+    // Zoek naar de post met de overeenkomstige URL
+    const post = posts.links.find(post => post.url === url);
+
+    if (post) {
+        post.likes -= 1;  // Verhoog het aantal likes
+        savePosts(posts); // Sla de nieuwe data op
+        res.json({ success: true, likes: post.likes });
+    } else {
+        res.status(404).json({ success: false, message: "Post niet gevonden" });
+    }
+});
+
 // Start de server
 app.listen(PORT, () => {
     console.log(`Server draait op http://localhost:${PORT}`);

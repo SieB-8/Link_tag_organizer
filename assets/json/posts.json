@@ -34,7 +34,20 @@
                 "impossible_minecraft",
                 "serie",
                 "creeper",
-                "iron_golem"
+                "iron_golem",
+                "zombie",
+                "baby_zombie",
+                "lava",
+                "lava_monster",
+                "sharks",
+                "mcmakistein",
+                "nether",
+                "blaze",
+                "iron",
+                "diamond",
+                "youtube",
+                "video",
+                "friends"
             ],
             "likes": 50
         }

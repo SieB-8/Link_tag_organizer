@@ -11,6 +11,7 @@ const header = document.getElementById("header");
 const headerLinks = document.querySelectorAll("header a");
 const searchButton = document.getElementById("search-button");
 const tagsContainerDiv = document.getElementById("tags-container");
+const likesContainerDiv = document.getElementById("likes-container");
 
 //update lightMode
 function updateLightMode() {
@@ -24,6 +25,9 @@ function updateLightMode() {
         if (tagsContainerDiv != null) {
             tagsContainerDiv.style.color = "#141414";
         };
+        if (likesContainerDiv != null) {
+            likesContainerDiv.style.color = "#141414";
+        };
         lightMode.src = "../assets/textures/light_mode.png";
     } else {
         document.body.style.backgroundColor = "#141414";
@@ -34,6 +38,9 @@ function updateLightMode() {
         searchButton.style.color = "#ffffff";
         if (tagsContainerDiv != null) {
             tagsContainerDiv.style.color = "#ffffff";
+        };
+        if (likesContainerDiv != null) {
+            likesContainerDiv.style.color = "#ffffff";
         };
         lightMode.src = "../assets/textures/dark_mode.png";
     }

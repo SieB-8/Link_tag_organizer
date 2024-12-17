@@ -35,7 +35,7 @@ function appendCategory(category, categoryType) {
     let title = document.createElement("p");
     title.className = "tag-title";
     title.innerHTML = categoryType;
-    if (category != []) {
+    if (category.length > 0) {
         tagsContainer.appendChild(title);
         category.forEach(e => {
             let tagText = document.createElement("a");
@@ -112,10 +112,26 @@ function embedVideo() {
         console.log("Calculate aspect ratio"); // Calculate a aspect ratio for videos that do not always have the 16/9 ratio
     } else {
         video.style.aspectRatio = 16 / 9;
-    }
-    postContainer.appendChild(video);
-}
+    };
+    postContainer.prepend(video);
+};
 
+// Place like count, add- and remove-button
+let likesCount = document.getElementById("likes-count");
+let addLikesButton = document.getElementById("add-like-button");
+let removeLikesButton = document.getElementById("remove-like-button");
+function placeLikes() {
+    likesCount.innerHTML = currentPost.likes;
+    addLikesButton.addEventListener("click", function () {
+        currentPost.likes++;
+        likesCount.innerHTML = currentPost.likes;
+    })
+    removeLikesButton.addEventListener("click", function () {
+        currentPost.likes--;
+        likesCount.innerHTML = currentPost.likes;
+    })
+}
+;
 // Load post objects
 let postObjects, currentPost;
 fetch("../assets/json/posts.json")
@@ -131,5 +147,6 @@ fetch("../assets/json/posts.json")
 
         loadTagDatabase();
         embedVideo();
+        placeLikes();
     })
     .catch(error => console.error("Error loading JSON:", error));

@@ -25,7 +25,7 @@ def start_server():
 
 # Browser openen
 def open_browser():
-    url = f"http://localhost:{PORT}/index.html"
+    url = f"http://localhost:{PORT}/frontend/index.html"
     webbrowser.open(url)
 
 # Hoofdfunctie

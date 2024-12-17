@@ -3,19 +3,39 @@
         {
             "url": "https://www.youtube.com/watch?v=iiADhChRriM",
             "type": "youtube",
-            "tags": ["coding", "programming", "tutorial", "json"],
+            "tags": [
+                "coding",
+                "programming",
+                "tutorial",
+                "json"
+            ],
             "likes": 93
         },
         {
             "url": "https://www.youtube.com/watch?v=li6_KCyGimM",
             "type": "youtube",
-            "tags": ["clash_royale", "gaming", "update"],
+            "tags": [
+                "clash_royale",
+                "gaming",
+                "update"
+            ],
             "likes": 12
         },
         {
             "url": "https://www.youtube.com/watch?v=la0TAQXX-2E",
             "type": "youtube",
-            "tags": ["minecraft", "survival", "impossible", "datapack", "smp", "grian", "impossible_minecraft", "serie", "creeper", "iron_golem"],
+            "tags": [
+                "minecraft",
+                "survival",
+                "impossible",
+                "datapack",
+                "smp",
+                "grian",
+                "impossible_minecraft",
+                "serie",
+                "creeper",
+                "iron_golem"
+            ],
             "likes": 50
         }
     ]

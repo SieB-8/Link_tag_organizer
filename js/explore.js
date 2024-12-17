@@ -9,22 +9,22 @@
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
 let tagsInLink = urlParams.get('tags');
-if (tagsInLink!=null){
+if (tagsInLink != null) {
     tagsInLink = tagsInLink.split(" ");
 };
 
 // Search bar
 const searchBar = document.getElementById("search");
-if (tagsInLink!=null){
+if (tagsInLink != null) {
     let searchBarText = tagsInLink.join(" ");
     searchBar.value = searchBarText;
 }
 
 // Do a search
-function doSearch(){
+function doSearch() {
     let newLinkParams = searchBar.value;
     newLinkParams = newLinkParams.trim().replace(/ {1,}/g, "+");
-    if (newLinkParams === "" || newLinkParams === "+"){
+    if (newLinkParams === "" || newLinkParams === "+") {
         window.location.href = "explore.html";
     } else {
         window.location.href = "explore.html?tags=" + newLinkParams;
@@ -32,8 +32,8 @@ function doSearch(){
 };
 
 // Press enter to do a search
-searchBar.addEventListener("keydown", function(event){
-    if (event.key === "Enter"){
+searchBar.addEventListener("keydown", function (event) {
+    if (event.key === "Enter") {
         event.preventDefault();
         doSearch();
     };
@@ -50,10 +50,10 @@ searchBar.addEventListener("keydown", function(event){
 */
 
 // Filter posts by tags
-function filterPosts(posts, tagsFilter){
-    if (tagsFilter === null){
+function filterPosts(posts, tagsFilter) {
+    if (tagsFilter === null) {
         return posts
-    }else {
+    } else {
         return posts.filter(post => {
             // Check if post's "tags" list includes the tags to filter
             return tagsFilter.every(tag => post.tags.includes(tag));
@@ -62,8 +62,8 @@ function filterPosts(posts, tagsFilter){
 };
 
 // Generate iframe url
-function generateUrl(url, type){
-    if(type === "youtube"){
+function generateUrl(url, type) {
+    if (type === "youtube") {
         return url.replace("https://www.youtube.com/watch?v=", "https://www.youtube.com/embed/")
     };
 };
@@ -71,7 +71,7 @@ function generateUrl(url, type){
 // Place all posts
 const postsContainer = document.getElementById("posts-container");
 
-function placePosts(posts){
+function placePosts(posts) {
     posts.forEach(e => {
         let video = document.createElement("iframe");
         video.src = generateUrl(e.url, e.type);
@@ -81,7 +81,7 @@ function placePosts(posts){
         let postBox = document.createElement("div");
         postBox.appendChild(video);
         postBox.className = "post";
-        postBox.addEventListener("click", function(){
+        postBox.addEventListener("click", function () {
             window.location.href = "view_post.html?url=" + encodeURIComponent(e.url);
         })
         postsContainer.append(postBox);
@@ -92,10 +92,10 @@ function placePosts(posts){
 // Load post objects
 let postObjects
 fetch("../assets/json/posts.json")
-  .then(response => response.json())
-  .then(data => {
-    postObjects = data.links; // All link objects
+    .then(response => response.json())
+    .then(data => {
+        postObjects = data.links; // All link objects
 
-    placePosts(filterPosts(postObjects, tagsInLink));
-  })
-  .catch(error => console.error("Error loading JSON:", error));
+        placePosts(filterPosts(postObjects, tagsInLink));
+    })
+    .catch(error => console.error("Error loading JSON:", error));

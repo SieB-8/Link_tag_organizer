@@ -45,10 +45,10 @@ lightModeSwitch.addEventListener("click", function () {
 
 // Do a search
 const searchBar = document.getElementById("search");
-function doSearch(){
+function doSearch() {
     let newLinkParams = searchBar.value
     newLinkParams = newLinkParams.trim().replace(/ {1,}/g, "+");
-    if (newLinkParams === "" || newLinkParams === "+"){
+    if (newLinkParams === "" || newLinkParams === "+") {
         window.location.href = "html/explore.html"
     } else {
         window.location.href = "html/explore.html?tags=" + newLinkParams;
@@ -56,8 +56,8 @@ function doSearch(){
 };
 
 // Press enter to do a search
-searchBar.addEventListener("keydown", function(event){
-    if (event.key === "Enter"){
+searchBar.addEventListener("keydown", function (event) {
+    if (event.key === "Enter") {
         event.preventDefault();
         doSearch();
     };

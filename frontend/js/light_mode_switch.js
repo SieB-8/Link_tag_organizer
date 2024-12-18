@@ -21,7 +21,9 @@ function updateLightMode() {
         headerLinks.forEach(e => {
             e.style.color = "#454545";
         });
-        searchButton.style.color = "#454545";
+        if (searchButton != null) {
+            searchButton.style.color = "#454545";
+        };
         if (tagsContainerDiv != null) {
             tagsContainerDiv.style.color = "#141414";
         };
@@ -35,7 +37,9 @@ function updateLightMode() {
         headerLinks.forEach(e => {
             e.style.color = "#b7b7b7";
         });
-        searchButton.style.color = "#ffffff";
+        if (searchButton != null) {
+            searchButton.style.color = "#ffffff";
+        };
         if (tagsContainerDiv != null) {
             tagsContainerDiv.style.color = "#ffffff";
         };

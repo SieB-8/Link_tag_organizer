@@ -1,0 +1,85 @@
+body {
+    font-family: Trebuchet MS, sans-serif;
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+    height: 100%;
+    background-color: #454545;
+    overflow: hidden;
+}
+
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+
+    background-color: #454545;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 7vh;
+    line-height: 7vh;
+}
+
+.nav-bar {
+    text-align: center;
+    margin: 0;
+    padding: 0 10px 0 10px;
+    height: 100%;
+}
+
+header a {
+    color: #454545;
+    font-size: 3vh;
+    text-decoration: none;
+}
+
+#light-mode-switch {
+    margin-left: auto;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+#light-mode {
+    margin: 0;
+    height: 70%;
+    width: auto;
+    display: block;
+}
+
+main {
+    margin: 0;
+    padding: 0;
+    overflow-y: auto;
+}
+
+#inputs-container {
+    color: #ffffff;
+}
+
+#submit-button {
+    color: #ffffff;
+    background-color: rgba(183, 183, 183, 0.35);
+    margin: 20px 0 0 20px;
+    padding: 5px;
+    border: 1px solid #b7b7b7;
+    border-radius: 5px;
+    display: inline-block;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+#submit-button:active {
+    position: relative;
+    top: 1px;
+}
+
+#submit-button:hover {
+    background-color: rgba(210, 210, 210, 0.35);
+}
+
+label, input, select, textarea {
+    margin: 20px 0 0 20px;
+}

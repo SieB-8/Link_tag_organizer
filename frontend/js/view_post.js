@@ -133,14 +133,14 @@ function placeLikes() {
         .then(response => response.json())
         .then(data => {
             if (data.success) {
-                currentPost.likes++;  // Werk de weergave van de likes bij
+                currentPost.likes++;  // Update likes
                 likesCount.innerHTML = currentPost.likes;
             } else {
                 console.error("Fout bij het verhogen van de likes:", data.message);
-            }
+            };
         })
         .catch(error => console.error("Fout:", error)); 
-    })
+    });
     removeLikesButton.addEventListener("click", function () {
         fetch("http://localhost:3000/dislike", {
             method: "POST",
@@ -152,16 +152,16 @@ function placeLikes() {
         .then(response => response.json())
         .then(data => {
             if (data.success) {
-                currentPost.likes--;  // Werk de weergave van de likes bij
+                currentPost.likes--;  // Update likes
                 likesCount.innerHTML = currentPost.likes;
             } else {
                 console.error("Fout bij het verhogen van de likes:", data.message);
-            }
+            };
         })
         .catch(error => console.error("Fout:", error)); 
-    })
-}
-;
+    });
+};
+
 // Load post objects
 let postObjects, currentPost;
 fetch("../assets/json/posts.json")

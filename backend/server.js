@@ -58,6 +58,25 @@ app.post('/dislike', (req, res) => {
     }
 });
 
+// Voeg post toe aan json
+app.post('/addPost', (req, res) => {
+    const { url, type, tags } = req.body;
+    console.log(req.body);
+
+    if (!url || !type || !tags) {
+        return res.status(400).json({ error: "Missing required fields: url, type, or tags" });
+    }
+
+    const postsData = loadPosts(); // Laad bestaande posts
+    const newPost = { url, type, tags, likes: 0 };
+
+    postsData.links.push(newPost);
+    savePosts(postsData);
+
+    console.log("New post added:", newPost);
+    res.status(200).json({ message: "Post successfully added!", newPost });
+});
+
 // Start de server
 app.listen(PORT, () => {
     console.log(`Server draait op http://localhost:${PORT}`);

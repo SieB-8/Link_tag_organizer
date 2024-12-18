@@ -193,3 +193,12 @@ main {
     text-decoration: none;
     cursor: pointer;
 }
+
+.like-button:active {
+    position: relative;
+    top: 1px;
+}
+
+.like-button:hover {
+    background-color: rgba(210, 210, 210, 0.35);
+}

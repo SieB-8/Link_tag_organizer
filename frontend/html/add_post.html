@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
     <title>TITLE</title>
-    <link href="../css/view_post.css" rel="stylesheet" type="text/css" />
+    <link href="../css/add_post.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
@@ -33,23 +33,24 @@
 
     </header>
     <main>
-        <div id="tags-container">
-            <div id="search-bar-container">
-                <input id="search" type="text" placeholder="Search...">
-                <a id="search-button" onclick="doSearch()">Search</a>
-            </div>
-        </div>
-        <div id="post-container">
-            <div id="likes-container">
-                <p id="likes-count"></p>
-                <img id="likes-icon" src="../assets/textures/like_icon.png">
-                <a id="add-like-button" class="like-button">Add like</a>
-                <a id="remove-like-button" class="like-button">Remove like</a>
-            </div>
-        </div>
+        <form id="inputs-container">
+            <label for="url-input">Url:</label>
+            <input type="text" id="url-input" name="url-input">
+            <br>
+            <label for="type-input">Type:</label>
+            <select id="type-input" name="type-input">
+                <option value="youtube">Youtube</option>
+                <option value="other">Other</option>
+            </select>
+            <br>
+            <label for="tags-input">Tags:</label>
+            <textarea id="tags-input" name="tags-input" rows="4" cols="50"></textarea>
+            <br>
+            <a id="submit-button" onclick="submitPost()">Post</a>
+        </form>
     </main>
     <script src="../js/light_mode_switch.js"></script>
-    <script src="../js/view_post.js"></script>
+    <script src="../js/add_post.js"></script>
 </body>
 
 </html>

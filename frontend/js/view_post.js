@@ -162,6 +162,38 @@ function placeLikes() {
     });
 };
 
+// Place tags in input field
+const tagsInputField = document.getElementById("tags-input");
+function placeTagsInputField(){
+    let tagsInputFieldText = currentPost.tags;
+    tagsInputFieldText = tagsInputFieldText.join(" ");
+    tagsInputField.value = tagsInputFieldText;
+};
+
+// Edit post's tags
+const editTagsButton = document.getElementById("edit-tags-button");
+editTagsButton.addEventListener("click", function () {
+        newTags = tagsInputField.value.trim().replace(/ {2,}/g, " ").toLowerCase().split(" ");
+        fetch("http://localhost:3000/editPostTags", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                url: currentPost.url,
+                tags: newTags
+             })  // url
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                alert("Tags updated succesfull! Refresh page to see the result.");
+            } else {
+                console.error("Fout bij het bewerken van de tags:", data.message);
+            };
+        });
+    });
+
 // Load post objects
 let postObjects, currentPost;
 fetch("../assets/json/posts.json")
@@ -178,5 +210,6 @@ fetch("../assets/json/posts.json")
         loadTagDatabase();
         embedVideo();
         placeLikes();
+        placeTagsInputField();
     })
     .catch(error => console.error("Error loading JSON:", error));

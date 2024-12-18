@@ -53,10 +53,10 @@ header a {
 main {
     margin: 0;
     padding: 0;
-    overflow-y: auto;
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
+    overflow-y: visible;
 }
 
 #tags-container {
@@ -150,9 +150,9 @@ main {
     padding: 20px 50px 0 50px;
     margin: auto;
     width: 80%;
-    height: 93vh;
+    height: auto;
     width: 80%;
-    overflow-y: auto;
+    overflow-y: visible;
     gap: 20px;
 }
 
@@ -161,6 +161,7 @@ main {
     max-width: 100%;
     height: auto;
     border: none;
+    margin-top: 20px;
 }
 
 #likes-container {
@@ -201,4 +202,14 @@ main {
 
 .like-button:hover {
     background-color: rgba(210, 210, 210, 0.35);
+}
+
+#edit-tags-container {
+    margin: 0 0 20px 0;
+    padding: 0;
+    display: flex;
+    flex-direction:row;
+    justify-content: center;
+    align-content: normal;
+    color: #ffffff;
 }

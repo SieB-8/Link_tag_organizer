@@ -126,6 +126,23 @@ app.post('/addTags', (req, res) => {
     };
 });
 
+// Edit post's tags
+app.post('/editPostTags', (req, res) => {
+    const { url, tags } = req.body;  // Verkrijg de URL van de post
+    let posts = loadPosts();   // Laad de huidige posts
+
+    // Zoek naar de post met de overeenkomstige URL
+    const post = posts.links.find(post => post.url === url);
+
+    if (post) {
+        post.tags = tags;  // Verhoog het aantal likes
+        savePosts(posts); // Sla de nieuwe data op
+        res.json({ success: true, tags: post.tags });
+    } else {
+        res.status(404).json({ success: false, message: "Post niet gevonden" });
+    }
+});
+
 // Start de server
 app.listen(PORT, () => {
     console.log(`Server draait op http://localhost:${PORT}`);

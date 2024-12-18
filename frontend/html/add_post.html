@@ -23,10 +23,6 @@
             <a href="add_post.html">Add post</a>
         </div>
 
-        <div class="nav-bar" id="nav-tag-list">
-            <a href="tag_list.html">Tags</a>
-        </div>
-
         <div class="nav-bar" id="light-mode-switch">
             <img src="../assets/textures/light_mode.png" id="light-mode">
         </div>
@@ -46,7 +42,21 @@
             <label for="tags-input">Tags:</label>
             <textarea id="tags-input" name="tags-input" rows="4" cols="50"></textarea>
             <br>
-            <a id="submit-button" onclick="submitPost()">Post</a>
+            <a class="submit-button" onclick="submitPost()">Post</a>
+            <br>
+            <br>
+            <label for="new-tags-input">Tag(s):</label>
+            <textarea id="new-tags-input" name="new-tags-input" rows="2" cols="25"></textarea>
+            <br>
+            <label for="new-tags-type-input">Type:</label>
+            <select id="new-tags-type-input" name="new-tags-type-input">
+                <option value="artists">Artists</option>
+                <option value="characters">Characters</option>
+                <option value="franchise">Franchise</option>
+                <option value="metadata">Metadata</option>
+            </select>
+            <br>
+            <a class="submit-button" onclick="submitTags()">Add tags</a>
         </form>
     </main>
     <script src="../js/light_mode_switch.js"></script>

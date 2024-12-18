@@ -1,12 +1,20 @@
 {
     "minecraft": "franchise",
-    "smp": "general",
     "tutorial": "metadata",
-    "impossible": "general",
     "clash_royal": "franchise",
     "grian": "artists",
     "impossible_minecraft": "franchise",
     "serie": "metadata",
     "creeper": "characters",
-    "iron_golem": "characters"
+    "iron_golem": "characters",
+    "mumbo_jumbo": "artists",
+    "mcskizzleman": "artists",
+    "10_min": "metadata",
+    "20_min": "metadata",
+    "30_min": "metadata",
+    "40_min": "metadata",
+    "50_min": "metadata",
+    "1_hour": "metadata",
+    "loop": "metadata",
+    "ai_generated": "metadata"
 }

@@ -59,7 +59,7 @@ main {
     color: #ffffff;
 }
 
-#submit-button {
+.submit-button {
     color: #ffffff;
     background-color: rgba(183, 183, 183, 0.35);
     margin: 20px 0 0 20px;
@@ -71,12 +71,12 @@ main {
     text-decoration: none;
 }
 
-#submit-button:active {
+.submit-button:active {
     position: relative;
     top: 1px;
 }
 
-#submit-button:hover {
+.submit-button:hover {
     background-color: rgba(210, 210, 210, 0.35);
 }
 

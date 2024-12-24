@@ -11,8 +11,8 @@ app.use(cors());
 app.use(express.json()); // Hiermee kan de server JSON-gegevens ontvangen
 
 // Pad naar je json bestanden
-const postsFilePath = path.join(__dirname, '../frontend/assets/json/posts.json');
-const tagsFilePath = path.join(__dirname, '../frontend/assets/json/tags.json');
+const postsFilePath = path.join(__dirname, 'frontend/assets/json/posts.json');
+const tagsFilePath = path.join(__dirname, 'frontend/assets/json/tags.json');
 
 // Lees de posts.json file
 function loadPosts() {
@@ -143,7 +143,13 @@ app.post('/editPostTags', (req, res) => {
     }
 });
 
-// Start de server
+// Zorg ervoor dat de map 'public' wordt geserveerd als statische map
+app.use(express.static(path.join(__dirname, 'frontend')));
+
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'frontend', 'index.html'));
+});
+
 app.listen(PORT, () => {
     console.log(`Server draait op http://localhost:${PORT}`);
 });

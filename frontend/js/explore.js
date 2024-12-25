@@ -64,7 +64,7 @@ function filterPosts(posts, tagsFilter) {
 // Generate iframe url
 function generateUrl(url, type) {
     if (type === "youtube") {
-        return url.replace("watch?v=", "embed/")
+        return url.replace("https://www.youtube.com/watch?v=", "https://img.youtube.com/vi/") + "/mqdefault.jpg"
     };
 };
 
@@ -73,13 +73,12 @@ const postsContainer = document.getElementById("posts-container");
 
 function placePosts(posts) {
     posts.forEach(e => {
-        let video = document.createElement("iframe");
-        video.src = generateUrl(e.url, e.type);
-        video.allow = "autoplay;";
-        video.className = "embed";
+        let img = document.createElement("img");
+        img.src = generateUrl(e.url, e.type);
+        img.className = "embed";
 
         let postBox = document.createElement("div");
-        postBox.appendChild(video);
+        postBox.appendChild(img);
         postBox.className = "post";
         postBox.addEventListener("click", function () {
             window.location.href = "view_post.html?url=" + encodeURIComponent(e.url);

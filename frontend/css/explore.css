@@ -114,6 +114,6 @@ main {
 
 .embed {
     width: 90%;
-    height: 90%;
+    height: auto;
     border: none;
 }
